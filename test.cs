@@ -10,11 +10,13 @@ public class test : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //volum = 1;
-        for(int n = 0; n < 20; n++)
+
+        Transform pos = GetComponent<Transform>();
+        for(int n = 0; n < 1; n++)
         {
-            for (int u = 0; u < 110; u++)
+            for (int u = 0; u < 200; u++)
             {
-                Instantiate(obj, obj.transform.position = new Vector3(-10 + n, u), Quaternion.identity);
+                Instantiate(obj, obj.transform.position = new Vector3(n + pos.transform.position.x, u + pos.transform.position.y), Quaternion.identity);
             }
         }
     }
