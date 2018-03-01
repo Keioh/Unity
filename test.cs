@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public float rota_speed = 10.0f;
-    public GameObject mid;
-    public GameObject front;
+    [SerializeField]
+    private float rota_speed = 10.0f;
+
+    [SerializeField]
+    private GameObject mid;
+
+    [SerializeField]
+    private GameObject front;
+
 
     Ray gear_ray;
     RaycastHit gear_hit;
+
+    //Transform
+    Transform gear_transform;
+
+    //collision
+    Collider gear_collider;
 
     bool flag;
 
     // Use this for initialization
     void Start()
     {
-
-
+        gear_transform = GetComponent<Transform>();
+        gear_collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -26,14 +38,9 @@ public class test : MonoBehaviour
         //Mouse position and position transform
         float mouseX_buf = 0.0f;
         float mouse_x = Input.mousePosition.x;
-        float mouse_y= Input.mousePosition.y;
+        float mouse_y = Input.mousePosition.y;
         Vector3 mouse_pos = Camera.main.ScreenToWorldPoint(new Vector3(mouse_x, mouse_y, 0.0f));
 
-        //Transform
-        Transform gear_transform = GetComponent<Transform>();
-
-        //collision
-        Collider gear_collider = GetComponent<Collider>();
 
         gear_ray.origin = new Vector3(mouse_pos.x, mouse_pos.y, mouse_pos.z);
         gear_ray.direction = new Vector3(0.0f, 0.0f, 1.0f);
@@ -52,7 +59,8 @@ public class test : MonoBehaviour
             {
                 flag = false;
             }
-        }else if((gear_collider.Raycast(gear_ray, out gear_hit, 100F) == false) && (Input.GetMouseButton(0) == false))
+        }
+        else if ((gear_collider.Raycast(gear_ray, out gear_hit, 100F) == false) && (Input.GetMouseButton(0) == false))
         {
             flag = false;
         }
