@@ -11,8 +11,6 @@ public class enemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        Transform pos = GetComponent<Transform>();
-
         //volumeがマイナスだったら0で初期化
         if (volume < 0) volume = 0;
 
@@ -20,7 +18,7 @@ public class enemy : MonoBehaviour {
 		for(int n = 0; n < volume; n++)
         {
             Instantiate(obj);
-            obj.transform.position = new Vector3(Random.insideUnitSphere.x * power + pos.position.x, Random.insideUnitSphere.y * power + pos.position.y, Random.insideUnitSphere.z * power + pos.position.z);
+            obj.transform.position = new Vector3(Random.insideUnitSphere.x * power + obj.transform.position.x, Random.insideUnitSphere.y * power + obj.transform.position.y, Random.insideUnitSphere.z * power + obj.transform.position.z);
         } 
 	}
 	
