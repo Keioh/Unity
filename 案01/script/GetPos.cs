@@ -10,7 +10,6 @@ public class GetPos : MonoBehaviour {
 	void Start () {
         getcomp_pos = GetComponent<Transform>();
         getcomp_pos.position = pos.position;
-
     }
 	
 	// Update is called once per frame

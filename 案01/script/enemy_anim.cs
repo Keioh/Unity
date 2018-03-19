@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemy_anim : MonoBehaviour {
 
+    public float power;
     Transform trns;
 
 	// Use this for initialization
@@ -15,6 +16,6 @@ public class enemy_anim : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        trns.Translate(Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f));
+        trns.Translate(Random.Range(-power, power), Random.Range(-power, power), Random.Range(-power, power));
     }
 }
