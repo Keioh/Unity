@@ -18,6 +18,11 @@ public class PlayerAbsorption : MonoBehaviour {
     void Start()
     {
         transform = GetComponent<Transform>();
+
+        for (int n = 0; enemy.Count < n; n++)//GameObject分のVector3を追加
+        {
+            position.Add(new Vector3(0.0f, 0.0f, 0.0f));
+        }
     }
 
     // Update is called once per frame
@@ -33,7 +38,7 @@ public class PlayerAbsorption : MonoBehaviour {
 
                     position_scale -= move_speed * Time.deltaTime;//中心へ寄るための数値変更
 
-                    for (int n = 0; n < enemy.Count; n++)//配列に対しての処理
+                    for (int n = 0; enemy.Count < n; n++)//配列に対しての処理
                     {
                         enemy[n].transform.position *= position_scale;//敵の位置を移動
                     }
