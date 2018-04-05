@@ -52,9 +52,11 @@ public class PlayerMove : MonoBehaviour
 
         if (touch_ended_flag == true)
         {
+            ended_position = transform.position;//移動しているオブジェクトの位置を保存
+
             position_vector = began_position - ended_position;//オブジェクトの座標の差を保存
 
-            if ((Mathf.Abs(position_vector.x) <= 1.0f) || (Mathf.Abs(position_vector.z) <= 1.0f))
+            if ((Mathf.Abs(position_vector.x) <= 0.8f) || (Mathf.Abs(position_vector.z) <= 0.8f))
             {
                 //移動処理
                 if (Mathf.Abs(touch_vector.x) < Mathf.Abs(touch_vector.y))//Y座標のほうが大きかったら
@@ -82,10 +84,8 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            ended_position = transform.position;//移動しているオブジェクトの位置を保存
-
             //移動終了処理
-            if ((Mathf.Abs(position_vector.x) > 1.0f) || (Mathf.Abs(position_vector.z) > 1.0f))
+            if ((Mathf.Abs(position_vector.x) > 0.8f) || (Mathf.Abs(position_vector.z) > 0.8f))
             {
                 touch_ended_flag = false;
             }
