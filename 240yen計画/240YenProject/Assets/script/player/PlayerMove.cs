@@ -78,7 +78,6 @@ public class PlayerMove : MonoBehaviour
 
                     charge = 0;//ジャンプのチャージをリセット
                     touch_count = 0;//ジャンプとタップ攻撃のタッチ継続値をリセット
-
                     break;
             }
         }

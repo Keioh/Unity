@@ -306,6 +306,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\enemy\EnemyDestory.cs" />
     <Compile Include="Assets\script\player\PlayerMove.cs" />
     <Compile Include="Assets\script\player\PlayerParticle.cs" />
   </ItemGroup>
