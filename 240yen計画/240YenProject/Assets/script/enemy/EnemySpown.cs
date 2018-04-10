@@ -8,11 +8,11 @@ public class EnemySpown : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        for (int n = 0; n < 10; n++)
+        for (int n = 0; n < 50; n++)
         {
-            for (int m = 0; m < 10; m++)
+            for (int m = 0; m < 50; m++)
             {
-                Instantiate(obj, new Vector3(Random.Range(2.0f,5.0f), 0.0f, Random.Range(2.0f, 5.0f)), Quaternion.identity);
+                Instantiate(obj, new Vector3(Random.Range(-17.0f,17.0f), 0.0f, Random.Range(-17.0f, 17.0f)), Quaternion.identity);
             }
         }
     }
