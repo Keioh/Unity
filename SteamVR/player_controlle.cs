@@ -12,7 +12,9 @@ public class player_controlle : MonoBehaviour
     public SteamVR_ActionSet myAction;
 
     //移動速度倍率
-    public float scale = 0.1f;
+    public float speed = 1.0f;
+
+    public float gravity = 1.0f;
 
     //キャラクターコントローラーを取得
     public CharacterController character_controller;
@@ -33,8 +35,8 @@ public class player_controlle : MonoBehaviour
 
 
         //それぞれトラックパッドの有効範囲を指定(自身の移動)
-        character_controller.Move(move_speed.z * Camera.main.transform.forward * scale);
-        character_controller.Move(move_speed.x * Camera.main.transform.right * scale);
+        character_controller.Move((move_speed.z * Time.deltaTime) * Camera.main.transform.forward * speed);
+        character_controller.Move((move_speed.x * Time.deltaTime) * Camera.main.transform.right * speed);
 
 
         //角度調整ボタン
@@ -53,7 +55,7 @@ public class player_controlle : MonoBehaviour
         //地面についていなければ
         if(!character_controller.isGrounded)
         {
-            character_controller.Move(new Vector3(0, -0.1f, 0));
+            character_controller.Move((-gravity * Time.deltaTime) * transform.up * speed);
         }
     }
 }
