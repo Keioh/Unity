@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class AssetBundleLoader : MonoBehaviour
 {
     [SerializeField, HeaderAttribute("AssetBundleパス"), Tooltip("AssetBundleへのパスを追加します。")]
     private List<string> assetBundlePath;//アセットバンドルのパス(実際のオブジェクト)
 
+    private AssetBundleCreateRequest assetBundleCreateRequest;
     private AssetBundle assetBundle;//asset_bundleの一時保存用。
 
     private bool loadFinishFlag = false;//読み込みが終ったかのフラグ
@@ -29,8 +31,9 @@ public class AssetBundleLoader : MonoBehaviour
 
         for (int count = 0; count != assetBundlePath.Count; ++count)//asset_bundle_pathの数だけ繰り返す。
         {
+            assetBundleCreateRequest = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(assetBundlePath[count]));//非同期読み込み処理(同期読み込みの場合はこの行を削除し、下の行のコメント部分をassetBundleCreateRequest部分と入れ替える。)
 
-            assetBundle = AssetBundle.LoadFromFile(assetBundlePath[count]);//アセットバンドルを読み込む
+            assetBundle = assetBundleCreateRequest.assetBundle;//AssetBundle.LoadFromFile(assetBundlePath[count]);//アセットバンドルを読み込む
 
             assetBundleList.Add(assetBundle);//読み込んだアセットバンドルをasset_bundle_listに追加。
         }
