@@ -25,7 +25,7 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((objectInstansFlag == false) && (assetBundleLoader.LoadFinish() == true))//読み込みが終っていてかつオブジェクト生成していないのであれば
+        if ((objectInstansFlag == false) && (assetBundleLoader.Finish() == true))//読み込み処理が終っていてかつオブジェクト生成していないのであれば
         {
             gameObject = assetBundleLoader.assetBundleList[0].LoadAsset<GameObject>("town");//オブジェクトを読み込む
 
