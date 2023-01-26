@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using static UnityEditor.PlayerSettings;
 
 public class duplicationPosition : MonoBehaviour
 {
@@ -16,6 +18,13 @@ public class duplicationPosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instansObject.Add(Instantiate(originObject, position, originObject.transform.rotation));
+        //オブジェクト作成
+        GameObject obj = Instantiate(originObject, position, originObject.transform.rotation);
+
+        //オブジェクトの名前を変更
+        obj.name = originObject.name + position.x as string + position.y as string + position.z as string;
+
+        //リストに追加
+        instansObject.Add(obj);
     }
 }

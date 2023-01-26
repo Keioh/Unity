@@ -26,7 +26,14 @@ public class duplicationXZ : MonoBehaviour
             {
                 pos.z = count_z * originObject.transform.localScale.z;
 
-                instansObject.Add(Instantiate(originObject, pos, originObject.transform.rotation));
+                //オブジェクト作成
+                GameObject obj = Instantiate(originObject, pos, originObject.transform.rotation);
+                    
+                //オブジェクトの名前を変更
+                obj.name = originObject.name + count_x as string + count_z as string;
+
+                //リストに追加
+                instansObject.Add(obj);
             }
         }
     }

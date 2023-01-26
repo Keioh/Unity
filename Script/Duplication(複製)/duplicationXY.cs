@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class duplicationXY : MonoBehaviour
 {
@@ -26,8 +27,15 @@ public class duplicationXY : MonoBehaviour
             {
                 pos.y = count_y * originObject.transform.localScale.y;
 
-                instansObject.Add(Instantiate(originObject, pos, originObject.transform.rotation));
-                
+                //オブジェクト作成
+                GameObject obj = Instantiate(originObject, pos, originObject.transform.rotation);
+
+                //オブジェクトの名前を変更
+                obj.name = originObject.name + count_x as string + count_y as string;
+
+                //リストに追加
+                instansObject.Add(obj);
+
             }
         }
     }
