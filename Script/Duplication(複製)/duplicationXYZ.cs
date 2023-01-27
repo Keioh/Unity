@@ -44,5 +44,7 @@ public class duplicationXYZ : MonoBehaviour
                 }
             }
         }
+
+        originObject.SetActive(false);//オリジナルのオブジェクトを非アクティブに設定。
     }
 }

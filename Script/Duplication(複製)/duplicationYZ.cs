@@ -36,5 +36,8 @@ public class duplicationYZ : MonoBehaviour
                 instansObject.Add(obj);
             }
         }
+
+        originObject.SetActive(false);//オリジナルのオブジェクトを非アクティブに設定。
+
     }
 }

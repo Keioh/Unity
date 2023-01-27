@@ -16,6 +16,7 @@ public class duplicationXZ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Vector3 pos = Vector3.zero;
 
         for (int count_x = 0; count_x < x; count_x++)
@@ -35,6 +36,8 @@ public class duplicationXZ : MonoBehaviour
                 //リストに追加
                 instansObject.Add(obj);
             }
-        }
+        }   
+        
+        originObject.SetActive(false);//オリジナルのオブジェクトを非アクティブに設定。
     }
 }
