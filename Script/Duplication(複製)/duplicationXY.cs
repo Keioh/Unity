@@ -10,6 +10,8 @@ public class duplicationXY : MonoBehaviour
     public int x;//複製する数（X方向）
     public int y;//複製する数（Y方向）
 
+    public bool activeOriginal = true;//trueでコピー元のオブジェクトを表示状態（Unity的にはActive）にする。
+
     [SerializeField]
     List<GameObject> instansObject = new List<GameObject>();//複製先
 
@@ -39,7 +41,12 @@ public class duplicationXY : MonoBehaviour
             }
         }
 
-        originObject.SetActive(false);//オリジナルのオブジェクトを非アクティブに設定。
 
+        originObject.SetActive(activeOriginal);//オリジナルのオブジェクトを非アクティブに設定。
+    }
+
+    private void Update()
+    {
+        originObject.SetActive(activeOriginal);//オリジナルのオブジェクトを非アクティブに設定。
     }
 }

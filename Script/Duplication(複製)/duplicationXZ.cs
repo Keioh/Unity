@@ -9,6 +9,9 @@ public class duplicationXZ : MonoBehaviour
     public int x;//複製する数（X方向）
     public int z;//複製する数（Z方向）
 
+    public bool activeOriginal = true;//trueでコピー元のオブジェクトを表示状態（Unity的にはActive）にする。
+
+
     [SerializeField]
     List<GameObject> instansObject = new List<GameObject>();//複製先
 
@@ -36,8 +39,14 @@ public class duplicationXZ : MonoBehaviour
                 //リストに追加
                 instansObject.Add(obj);
             }
-        }   
-        
-        originObject.SetActive(false);//オリジナルのオブジェクトを非アクティブに設定。
+        }
+
+
+        originObject.SetActive(activeOriginal);//オリジナルのオブジェクトを非アクティブに設定。
+    }
+
+    private void Update()
+    {
+        originObject.SetActive(activeOriginal);//オリジナルのオブジェクトを非アクティブに設定。
     }
 }

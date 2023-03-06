@@ -5,26 +5,38 @@ using UnityEngine.UIElements;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using static UnityEditor.PlayerSettings;
 
+//指定した位置に1つオブジェクトを複製する。
+//複製したオブジェクトはListに格納される。
+
 public class duplicationPosition : MonoBehaviour
 {
     public GameObject originObject;//コピー元（オリジナルのオブジェクト＝アタッチされているオブジェクト）
 
     public Vector3 position;
 
+    //public bool activeOriginal = true;//trueでコピー元のオブジェクトを表示状態（Unity的にはActiveの値）にする。
+
     [SerializeField]
     List<GameObject> instansObject = new List<GameObject>();//複製先
 
+    [SerializeField]
+    int valuInList = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Add(GameObject obj, Vector3 pos, bool activeObje = true)
     {
         //オブジェクト作成
-        GameObject obj = Instantiate(originObject, position, originObject.transform.rotation);
+        GameObject ins_obj = Instantiate(obj, pos, obj.transform.rotation);
 
         //オブジェクトの名前を変更
-        obj.name = originObject.name + position.x as string + position.y as string + position.z as string;
+        ins_obj.name = obj.name + pos.x as string + pos.y as string + pos.z as string;
 
         //リストに追加
-        instansObject.Add(obj);
+        instansObject.Add(ins_obj);
+
+        originObject.SetActive(activeObje);//オリジナルのオブジェクトをアクティブ状態の設定。
+
+        valuInList = instansObject.Count;//現在のリスト内の要素数を取得
+
+        Debug.Log(ins_obj.name + "Added List");
     }
 }
