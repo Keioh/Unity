@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using JetBrains.Annotations;
+using UnityEngine;
 
-public class UIInfomation : MonoBehaviour
+public class SoilInfomationUI : MonoBehaviour
 {
     public GameObject mainCamera;
 
@@ -30,10 +29,5 @@ public class UIInfomation : MonoBehaviour
         {
             m_TextMeshProUGUI.text = terrainInfo;
         }
-    }
-
-    public void SoilInfo()
-    {
-
     }
 }

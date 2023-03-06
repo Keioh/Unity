@@ -9,7 +9,10 @@ public class TerrainInfomation : MonoBehaviour
     public ChangeMaterial changeMaterial;//マテリアルを変更するスクリプト
 
     [SerializeField]
-    SoilType.SOIL_TYPS soilType;
+    SoilType.SOIL_TYPES soilType;
+
+    [SerializeField]
+    ConditionType.CONDITION_TYPES conditionType;
 
 
     // Start is called before the first frame update
@@ -17,18 +20,21 @@ public class TerrainInfomation : MonoBehaviour
     {
         if(isCentralArea == true)
         {
-            changeMaterial.Change((int)SoilType.SOIL_TYPS.CENTRAL);
+            changeMaterial.Change((int)SoilType.SOIL_TYPES.CENTRAL);
 
-            soilType = SoilType.SOIL_TYPS.CENTRAL;
+            soilType = SoilType.SOIL_TYPES.CENTRAL;
+            conditionType = ConditionType.CONDITION_TYPES.MEDIOCRE;
 
         }
         else
         {
-            float rand = Random.Range(0.1f, 0.9f) * 10;
+            float soil_rand = Random.Range(0.1f, 0.9f) * 10;
+            float condition_rand = Random.Range(0.0f, 0.8f) * 10;
 
-            changeMaterial.Change((int)rand);
+            changeMaterial.Change((int)soil_rand);
 
-            soilType = (SoilType.SOIL_TYPS)rand;
+            soilType = (SoilType.SOIL_TYPES)soil_rand;
+            conditionType = (ConditionType.CONDITION_TYPES)condition_rand;
         }
     }
 
@@ -37,4 +43,15 @@ public class TerrainInfomation : MonoBehaviour
     {
         
     }
+
+    public SoilType.SOIL_TYPES GetSoilType()
+    {
+        return soilType;
+    }
+
+    public ConditionType.CONDITION_TYPES GetConditionType()
+    {
+        return conditionType;
+    }
+
 }
