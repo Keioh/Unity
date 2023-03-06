@@ -19,9 +19,6 @@ public class duplicationPosition : MonoBehaviour
     [SerializeField]
     List<GameObject> instansObject = new List<GameObject>();//複製先
 
-    [SerializeField]
-    int valuInList = 0;
-
     public void Add(GameObject obj, Vector3 pos, bool activeObje = true)
     {
         //オブジェクト作成
@@ -34,8 +31,6 @@ public class duplicationPosition : MonoBehaviour
         instansObject.Add(ins_obj);
 
         originObject.SetActive(activeObje);//オリジナルのオブジェクトをアクティブ状態の設定。
-
-        valuInList = instansObject.Count;//現在のリスト内の要素数を取得
 
         Debug.Log(ins_obj.name + "Added List");
     }

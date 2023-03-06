@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 //マウスからレイを飛ばしてオブジェクトがヒットするかを見るスクリプト
 //このスクリプトはMainCmaeraにつける。
+//inputはInputSystemを使用
 public class mousePointRayHit : MonoBehaviour
 {
     public bool isHit;
